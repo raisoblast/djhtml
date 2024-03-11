@@ -49,6 +49,8 @@ class Line:
         if self.ignore:
             return self.text
         if text := self.text.strip():
+            if tabwidth == 1:
+                return "\t" * (tabwidth * self.level + self.offset) + text
             return " " * (tabwidth * self.level + self.offset) + text
         return ""
 
