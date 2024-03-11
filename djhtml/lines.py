@@ -1,3 +1,6 @@
+import math
+
+
 class Line:
     """
     A single output line not including the final newline.
@@ -50,7 +53,7 @@ class Line:
             return self.text
         if text := self.text.strip():
             if tabwidth == 1:
-                return "\t" * (tabwidth * self.level + self.offset) + text
+                return "\t" * (tabwidth * self.level) + ("\t" * math.ceil(self.offset / 4)) + text
             return " " * (tabwidth * self.level + self.offset) + text
         return ""
 
